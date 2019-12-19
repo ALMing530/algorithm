@@ -1,4 +1,4 @@
-package com.wxm;
+package com.wxm.sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;
