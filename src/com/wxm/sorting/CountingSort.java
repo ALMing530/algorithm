@@ -7,26 +7,16 @@ import java.util.function.Consumer;
 
 public class CountingSort {
     public static void main(String[] args) {
-        List<Integer> t = new ArrayList<>();
-        Collections.addAll(t, 5, 7, 8, 2, 1, 6, 9, 0, 4, 3);// sample data
+        List<Integer> arr = new ArrayList<>();
+        Collections.addAll(arr, 5, 7, 8, 2, 1, 6, 9, 0, 4, 3);// sample data
         System.out.print("Before ordering:");
-        t.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) {
-                System.out.print(integer);
-            }
-        });
+        arr.forEach(System.out::print);
 
-        sort(t);
+        sort(arr);
 
         System.out.println();
         System.out.print("After ordering:");
-        t.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) {
-                System.out.print(integer);
-            }
-        });
+        arr.forEach(System.out::print);
     }
 
     public static void sort(List<Integer> arr) {

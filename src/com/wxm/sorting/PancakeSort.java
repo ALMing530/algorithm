@@ -8,32 +8,22 @@ import java.util.function.Consumer;
 public class PancakeSort {
 
     public static void main(String[] args) {
-        List<Integer> t = new ArrayList<>();
-        Collections.addAll(t, 5, 7, 8, 2, 1, 6, 9, 0,4, 3);// sample data
+        List<Integer> arr = new ArrayList<>();
+        Collections.addAll(arr, 5, 7, 8, 2, 1, 6, 9, 0, 4, 3);// sample data
         System.out.print("Before ordering:");
-        t.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) {
-                System.out.print(integer);
-            }
-        });
+        arr.forEach(System.out::print);
 
-        sort(t);//sort
+        sort(arr);
 
         System.out.println();
         System.out.print("After ordering:");
-        t.forEach(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) {
-                System.out.print(integer);
-            }
-        });
+        arr.forEach(System.out::print);
     }
 
     public static void sort(List<Integer> arr) {
         int len = arr.size();
         int reLen = len;
-        for (int i = 0; i < len - 2; i++) {
+        for (int i = 0; i < len-1; i++) {
             int min = Integer.MAX_VALUE;
             int maxIndex = 0;
             for (int j = len - reLen; j < len; j++) {
@@ -43,16 +33,17 @@ public class PancakeSort {
                 }
             }
             for (int k = 0; k < (len - maxIndex) / 2; k++) {
-                int temp = arr.get(len - 1 - k);
-                arr.set(len - 1 - k, arr.get(maxIndex + k));
-                arr.set(maxIndex + k, temp);
+                swap(arr,maxIndex,len-1-k);
             }
             for (int n = 0; n < reLen / 2; n++) {
-                int temp = arr.get(len - 1 - n);
-                arr.set(len - 1 - n, arr.get(len - reLen + n));
-                arr.set(len - reLen + n, temp);
+                swap(arr,len-reLen+n,len-1-n);
             }
             reLen--;
         }
+    }
+    private static void swap(List<Integer> arr, int i, int j) {
+        int temp = arr.get(j);
+        arr.set(j, arr.get(i));
+        arr.set(i, temp);
     }
 }

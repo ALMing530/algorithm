@@ -3,9 +3,8 @@ package com.wxm.sorting;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Consumer;
 
-public class SelectionSort {
+public class ShellSort {
     public static void main(String[] args) {
         List<Integer> arr = new ArrayList<>();
         Collections.addAll(arr, 5, 7, 8, 2, 1, 6, 9, 0, 4, 3);// sample data
@@ -21,17 +20,23 @@ public class SelectionSort {
 
     public static void sort(List<Integer> arr) {
         int len = arr.size();
-        for (int i = 0; i < len - 1; i++) {
-            int min = Integer.MAX_VALUE;
-            int maxIndex = 0;
-            for (int j = i; j < len; j++) {
-                if (arr.get(j) < min) {
-                    min = arr.get(j);
-                    maxIndex = j;
+        int gap = len / 2;
+        while (gap > 0) {
+            for (int i = gap; i < len; i++) {
+                int temp = arr.get(i);
+                int index = i;
+                for (int j = i - gap; j >= 0; j -= gap) {
+                    if (arr.get(j) > temp) {
+                        arr.set(j + gap, arr.get(j));
+                        index -= gap;
+//                        arr.set(j, temp);
+                    } else {
+                        break;
+                    }
                 }
+                arr.set(index, temp);
             }
-            arr.set(maxIndex, arr.get(i));
-            arr.set(i, min);
+            gap = gap / 2;
         }
     }
 }
