@@ -20,6 +20,12 @@
 
 + Pancake sort(煎饼排序)
 
++ Bucket sort(桶排序)
+
++ Pigeon hole sort(鸽巢排序)
+
++ Radix sort(基数排序)
+
   ***
 
   I will update this when I have time
