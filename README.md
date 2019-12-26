@@ -26,6 +26,10 @@
 
 + Radix sort(基数排序)
 
++ Merge sort(归并排序)
+
++ Quick sort(快速排序)
+
   ***
 
   I will update this when I have time
