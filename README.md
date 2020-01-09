@@ -30,6 +30,6 @@
 
 + Quick sort(快速排序)
 
-  ***
+  -------
 
-  I will update this when I have time
+  
