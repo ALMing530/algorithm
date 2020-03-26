@@ -1,4 +1,4 @@
-package com.wxm.serch;
+package com.wxm.search;
 
 public class ForceSearch {
     public static void main(String[] args) {
