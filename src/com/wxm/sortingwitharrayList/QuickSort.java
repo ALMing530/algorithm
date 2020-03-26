@@ -1,4 +1,4 @@
-package com.wxm.sorting;
+package com.wxm.sortingwitharrayList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class QuickSort {
     public static void main(String[] args) {
-        System.out.println("Merge Sort()");
+        System.out.println("Quick Sort()");
         List<Integer> arr = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
@@ -14,7 +14,6 @@ public class QuickSort {
         }
         System.out.print("Before ordering:\t");
         arr.forEach(integer -> System.out.print(integer + " "));
-        List<Integer> toArr = new ArrayList<>();
         sort(arr, 0, arr.size() - 1);
 
         System.out.println();

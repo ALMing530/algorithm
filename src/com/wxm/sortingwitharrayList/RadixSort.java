@@ -1,7 +1,6 @@
-package com.wxm.sorting;
+package com.wxm.sortingwitharrayList;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
