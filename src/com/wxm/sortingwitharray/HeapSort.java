@@ -14,6 +14,9 @@ public class HeapSort {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
         int largest = i;
+        //堆化到最后一个节点的时候如果发生了节点交换会递归去堆化叶子节点.
+        //此时left和right会超出数组长度，并且叶子节点不需要堆化，所以
+        //条件中含left<len和right<len
         if (left < len && arr[left] > arr[largest]) {
             largest = left;
         }
@@ -25,9 +28,10 @@ public class HeapSort {
             heapify(arr, largest, len);
         }
     }
-
+    //建堆
     public static void buildHeap(int[] arr) {
         int len = arr.length;
+        //找到第一个需要堆化得节点
         int firstNonLeafNode = len / 2 - 1;
         for (int i = firstNonLeafNode; i >= 0; i--) {
             heapify(arr, i, len);

@@ -1,4 +1,6 @@
-package com.wxm.sortingwitharrayList;
+package com.wxm.sortingwitharraylist;
+
+import com.wxm.commons.Commons;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,17 +27,11 @@ public class ShellSort {
         while (gap > 0) {
             for (int i = gap; i < len; i++) {
                 int temp = arr.get(i);
-                int index = i;
                 for (int j = i - gap; j >= 0; j -= gap) {
                     if (arr.get(j) > temp) {
-                        arr.set(j + gap, arr.get(j));
-                        index -= gap;
-//                        arr.set(j, temp);
-                    } else {
-                        break;
+                        Commons.swap(arr,j,j+gap);
                     }
                 }
-                arr.set(index, temp);
             }
             gap = gap / 2;
         }

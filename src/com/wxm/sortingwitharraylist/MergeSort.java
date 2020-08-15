@@ -1,4 +1,4 @@
-package com.wxm.sortingwitharrayList;
+package com.wxm.sortingwitharraylist;
 
 import java.util.ArrayList;
 import java.util.List;

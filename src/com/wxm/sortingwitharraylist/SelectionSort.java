@@ -1,12 +1,14 @@
-package com.wxm.sortingwitharrayList;
+package com.wxm.sortingwitharraylist;
+
+import com.wxm.commons.Commons;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class InsertionSort {
+public class SelectionSort {
     public static void main(String[] args) {
-        System.out.println("Insertion Sort(插入排序)");
+        System.out.println("Selection Sort(选择排序)");
         List<Integer> arr = new ArrayList<>();
         Collections.addAll(arr, 5, 7, 8, 2, 1, 6, 9, 0, 4, 3);// sample data
         System.out.print("Before ordering:\t");
@@ -21,19 +23,16 @@ public class InsertionSort {
 
     public static void sort(List<Integer> arr) {
         int len = arr.size();
-        for (int i = 1; i < len; i++) {
-            int temp = arr.get(i);
-            int index = i;
-            for (int j = i - 1; j >= 0; j--) {
-                if (temp < arr.get(j)) {
-                    arr.set(j + 1, arr.get(j));
-                    index--;
-//                    arr.set(j, temp);
-                } else {
-                    break;
+        for (int i = 0; i < len - 1; i++) {
+            int min = arr.get(i);
+            int maxIndex = 0;
+            for (int j = i; j < len; j++) {
+                if (arr.get(j) < min) {
+                    min = arr.get(j);
+                    maxIndex = j;
                 }
             }
-            arr.set(index,temp);
+            Commons.swap(arr,i,maxIndex);
         }
     }
 }
