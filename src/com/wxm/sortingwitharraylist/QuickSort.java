@@ -1,5 +1,7 @@
 package com.wxm.sortingwitharraylist;
 
+import com.wxm.commons.Commons;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,7 +11,7 @@ public class QuickSort {
         System.out.println("Quick Sort()");
         List<Integer> arr = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 30; i++) {
             arr.add(random.nextInt(100));
         }
         System.out.print("Before ordering:\t");
@@ -22,29 +24,24 @@ public class QuickSort {
     }
 
     public static void sort(List<Integer> arr, int low, int high) {
-        if (low > high) {
-            return;
+        if (low < high) {
+            int left = low;
+            int right = high;
+            int current = arr.get(low);
+            while (low < high) {
+                while (arr.get(high) > current) {
+                    high--;
+                }
+                while (arr.get(low) <= current && low < high) {
+                    low++;
+                }
+                if (low < high) {
+                    Commons.swap(arr, low, high);
+                }
+            }
+            Commons.swap(arr, left, low);
+            sort(arr, left, low - 1);
+            sort(arr, low + 1, right);
         }
-        int i = low;
-        int j = high;
-        int current = arr.get(i);
-        while (j>i){
-            while (arr.get(j)>current){
-                j--;
-            }
-            while(arr.get(i)<=current&&i<j){
-                i++;
-            }
-            if(i<j){
-                int temp = arr.get(j);
-                arr.set(j, arr.get(i));
-                arr.set(i, temp);
-            }
-        }
-        int temp = arr.get(i);
-        arr.set(i,arr.get(low));
-        arr.set(low,temp);
-        sort(arr,low,i-1);
-        sort(arr,i+1,high);
     }
 }
