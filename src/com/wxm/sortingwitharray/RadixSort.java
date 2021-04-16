@@ -7,9 +7,12 @@ import java.util.ArrayList;
 public class RadixSort {
     public static void main(String[] args) {
         int[] mock = Commons.mockArray();
-        sort(mock);
-//        sort2(mock);
+//        sort(mock);
         Commons.printf(mock);
+        System.out.println();
+        sort2(mock);
+        Commons.printf(mock);
+
     }
 
     //You'd better implement your self ArrayList because the conversion
@@ -17,7 +20,7 @@ public class RadixSort {
     public static void sort(int[] arr) {
         int max = Commons.max(arr);
         int number = bits(max);
-        ArrayList<Integer>[] buckets = emptyArrayLists(10);
+        ArrayList<Integer>[] buckets = Commons.emptyArrayLists(10);
         ArrayList<Integer> tempArr = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             for (int temp : arr) {
@@ -36,28 +39,35 @@ public class RadixSort {
 
     public static void sort2(int[] arr) {
         int len = arr.length;
-        int[] tempArr = new int[len];
+        int[] addition = new int[len];
+        //index是一个记录每个基数位置有多少个数的容器例如对于 7，6，34，567
+        //假如现在在计算个位数那么index为 0 0 0 0 1 0 1 2 0 0
+        //                           0 1 2 3 4 5 6 7 8 9
         int[] index = new int[10];
         int max = Commons.max(arr);
         int number = bits(max);
         for (int i = 0; i < number; i++) {
+            //计算出该基数位置的基数个数。
             for (int temp : arr) {
                 index[radix(temp, i)]++;
             }
+            //实际上是构建出了一个映射关系，即某个基数桶在数组中的起始位置，主要
+            //是为了减少创建基数桶的内存开销同过在一个数组上操作而非二维数组按照
+            //前文的 7，6，34，567 来分析那么 会出现 0 0 0 0 1 1 2 4 4 4
             for (int j = 1; j < 10; j++) {
                 index[j] += index[j - 1];
             }
-            for (int k = len - 1; k >= 0; k--) {
+            //这里必须是倒序，因为addition数组填充时就是倒序的。
+            for (int k = len-1; k >=0; k--) {
                 int radix = radix(arr[k], i);
-                tempArr[index[radix] - 1] = arr[k];
-                index[radix]--;
+                addition[index[radix] - 1] = arr[k];
+                index[radix]=index[radix]-1;
             }
             for (int n = 0; n < 10; n++) {
                 index[n] = 0;
             }
-            System.arraycopy(tempArr, 0, arr, 0, len);
+            System.arraycopy(addition, 0, arr, 0, len);
         }
-
     }
 
     //Only for positive integer
@@ -67,14 +77,6 @@ public class RadixSort {
             i++;
         }
         return i;
-    }
-
-    public static ArrayList<Integer>[] emptyArrayLists(int capacity) {
-        ArrayList<Integer>[] arr = new ArrayList[capacity];
-        for (int i = 0; i < capacity; i++) {
-            arr[i] = new ArrayList<>();
-        }
-        return arr;
     }
 
     //get radix

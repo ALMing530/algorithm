@@ -15,7 +15,8 @@ public class ShellSort {
         int len = arr.length;
         int gap = len / 2;
         for (int i = gap; i > 0;i = i/2) {
-            for (int j = i; j < len; j++) {
+            //按照步进i执行插入排序，步进逐渐缩小最终等于1
+            for (int j = i; j < len; j+=i) {
                 int temp = arr[j];
                 for(int k=j-i;k>=0;k-=i){
                     if(temp<arr[k]){

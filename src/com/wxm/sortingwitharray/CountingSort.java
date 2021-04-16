@@ -21,7 +21,6 @@ public class CountingSort {
             for(int j=0;j<count[i];j++){
                 arr[index++] = i+min;
             }
-
         }
     }
 }

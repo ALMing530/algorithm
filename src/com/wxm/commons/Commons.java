@@ -65,4 +65,12 @@ public class Commons {
             System.out.print(temp + "-");
         }
     }
+
+    public static ArrayList<Integer>[] emptyArrayLists(int capacity) {
+        ArrayList<Integer>[] arr = new ArrayList[capacity];
+        for (int i = 0; i < capacity; i++) {
+            arr[i] = new ArrayList<>();
+        }
+        return arr;
+    }
 }

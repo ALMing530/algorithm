@@ -15,7 +15,9 @@ public class SelectionSort {
         int len = arr.length;
         for (int i = 0; i < len-1; i++) {
             int index = i;
+            //初始时就假定第一个元素是最小元素
             int min = arr[i];
+            //然后在剩余元素中查找最小元素并记录索引，最后将找到的最小元素放在它该在的位置
             for (int j = i + 1; j < len; j++) {
                 if (arr[j] < min) {
                     min = arr[j];
