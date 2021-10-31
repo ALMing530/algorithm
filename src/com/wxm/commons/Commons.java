@@ -61,8 +61,8 @@ public class Commons {
     }
 
     public static void printf(int[] arr) {
-        for (int temp : arr) {
-            System.out.print(temp + "-");
+        for (int el : arr) {
+            System.out.printf("\t%d\t", el);
         }
     }
 
