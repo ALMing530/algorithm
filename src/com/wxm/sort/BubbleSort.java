@@ -1,4 +1,4 @@
-package com.wxm.sortingwitharray;
+package com.wxm.sort;
 
 import com.wxm.commons.Commons;
 

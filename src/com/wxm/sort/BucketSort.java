@@ -1,10 +1,9 @@
-package com.wxm.sortingwitharray;
+package com.wxm.sort;
 
 import com.wxm.commons.Commons;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.function.IntFunction;
 
 public class BucketSort {
     public static void main(String[] args) {

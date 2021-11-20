@@ -60,10 +60,20 @@ public class Commons {
         return arr;
     }
 
+    public static int[] mockArray(int count) {
+        Random random = new Random();
+        int[] arr = new int[count];
+        for (int i = 0; i < count; i++) {
+            arr[i] = random.nextInt(100);
+        }
+        return arr;
+    }
+
     public static void printf(int[] arr) {
         for (int el : arr) {
             System.out.printf("\t%d\t", el);
         }
+        System.out.println();
     }
 
     public static ArrayList<Integer>[] emptyArrayLists(int capacity) {

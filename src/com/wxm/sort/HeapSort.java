@@ -1,4 +1,4 @@
-package com.wxm.sortingwitharray;
+package com.wxm.sort;
 
 public class HeapSort {
     public static void sort(int[] arr) {

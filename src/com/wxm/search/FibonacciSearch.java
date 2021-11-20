@@ -1,6 +1,6 @@
 package com.wxm.search;
 
-import com.wxm.sortingwitharray.HeapSort;
+import com.wxm.sort.HeapSort;
 
 import java.util.Arrays;
 /**

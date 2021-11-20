@@ -1,6 +1,6 @@
 package com.wxm.search;
 
-import com.wxm.sortingwitharray.HeapSort;
+import com.wxm.sort.HeapSort;
 
 public class BinarySearch {
     public static void main(String[] args) {

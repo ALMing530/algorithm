@@ -1,6 +1,6 @@
 package com.wxm.search;
 
-import com.wxm.sortingwitharray.HeapSort;
+import com.wxm.sort.HeapSort;
 
 public class InsertValueSearch {
     public static void main(String[] args) {
